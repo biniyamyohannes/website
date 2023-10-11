@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/themes/prism.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/prism.min.js"></script>
+    <title>Creating Stunning Web Pages with HTML and CSS</title>
+    <style>
+        /* Custom styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Raleway', sans-serif;
+            background: linear-gradient(45deg, #CD3C39, #410940);
+            color: #fff;
+            text-align: left;
+        }
+
+		.blogtitle {
+			color: #CD3C39;
+			padding-top: 100px;
+			/* border-radius: 4px;
+			display: inline-block; */
+			background-color: transparent;
+			font-size: 4.5em;
+			width: 66.66%; /* 2/3 of the page width */
+			margin: 10px auto; /* Center the title */
+			text-align: center; /* Center the title text */
+		}
+
+        .separator {
+            border-top: 2px solid #CD3C39;
+            width: 66.66%; /* 2/3 of the page width */
+            margin: 40px auto;
+        }
+
+        .section {
+            margin: 0 auto;
+            width: 50%; /* 1/2 of the page width */
+            padding-bottom: 20px;
+        }
+
+        .code-container {
+			border-radius: 10px;
+            /*background-color: #333;*/
+            /*border: 1px solid #CD3C39;*/
+            padding: 20px;
+            margin: 20px 0;
+            position: relative;
+            text-align: left;
+        }
+
+        .code-button {
+            background-color: #CD3C39;
+            color: white;
+            padding: 6px 10px;
+            border: none;
+            cursor: pointer;
+            position: absolute;
+            padding-top: 10px;
+            right: 10px;
+        }
+
+        pre {
+			border-radius: 10px;
+            /*background-color: #333;*/
+            /*border: 1px solid #CD3C39;*/
+            padding: 10px;
+            overflow: auto;
+            font-size: 18px;
+            margin: 0;
+        }
+
+        code {
+            /*color: #CD3C39;*/
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+        }
+
+        button {
+            background-color: #CD3C39;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="blogtitle">Test Blog pPost</h1>
+    <div class="separator"></div>
+<div class="section">
+    <p style="font-size: 18px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget ipsum non purus ultricies varius. Praesent eu ipsum ac dui fermentum vehicula nec id lectus. Duis tempus velit sit amet justo elementum, vel feugiat tellus fringilla.</p>
+</div class="section">
+    <div class="section">
+        <h2 style="font-size: 24px;">Section 1</h2>
+
+        <p style="font-size: 18px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget ipsum non purus ultricies varius. Praesent eu ipsum ac dui fermentum vehicula nec id lectus. Duis tempus velit sit amet justo elementum, vel feugiat tellus fringilla.</p>
+
+        <div class="code-container">
+            <button class="code-button" onclick="copyCode(this)">Copy Code</button>
+			<pre>
+				<code class="language-python">
+def calculate_sum(a, b):
+    # This is a simple function that calculates the sum of two numbers.
+    result = a + b
+    return result
+
+# Test the function
+num1 = 10
+num2 = 20
+sum_result = calculate_sum(num1, num2)
+print(f"The sum of {num1} and {num2} is: {sum_result}")
+				</code>
+			</pre>
+
+    <script src="prism.js"></script>
+        </div>
+
+        <p style="font-size: 18px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget ipsum non purus ultricies varius. Praesent eu ipsum ac dui fermentum vehicula nec id lectus. Duis tempus velit sit amet justo elementum, vel feugiat tellus fringilla.</p>
+    </div>
+
+    <div class="section">
+        <h2 style="font-size: 24px;">Section 2</h2>
+        <p style="font-size: 18px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget ipsum non purus ultricies varius. Praesent eu ipsum ac dui fermentum vehicula nec id lectus. Duis tempus velit sit amet justo elementum, vel feugiat tellus fringilla.</p>
+
+        <div class="code-container">
+            <button class="code-button" onclick="copyCode(this)">Copy Code</button>
+            <pre>
+                <code class="language-python">
+def greet(name):
+	print(f"Hello, {name}!")
+
+greet("Python")
+                </code>
+            </pre>
+        </div>
+
+        <p style="font-size: 18px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget ipsum non purus ultricies varius. Praesent eu ipsum ac dui fermentum vehicula nec id lectus. Duis tempus velit sit amet justo elementum, vel feugiat tellus fringilla.</p>
+    </div>
+	<script>
+		Prism.highlightAll();
+	</script>
+</body>
+</html>
+
+<script>
+    function copyCode(button) {
+        const codeBlock = button.nextElementSibling.querySelector('code');
+        const codeText = codeBlock.textContent;
+        navigator.clipboard.writeText(codeText).then(function() {
+            console.log('Code copied to clipboard: ' + codeText);
+        }).catch(function(err) {
+            console.error('Copy failed: ' + err);
+        });
+    }
+</script>
