@@ -46,23 +46,24 @@
         .footer {
             padding: 20px 0;
         }
-
-        /* Profile picture container */
-        .profile-picture {
-            text-align: center;
-        }
-
-        /* Circular cutout for the profile picture */
-        .profile-image {
-            width: 400px; /* Adjust the size as needed */
-            height: 400px; /* Adjust the size as needed */
-            border-radius: 50%; /* Create a circular cutout */
-            overflow: hidden; /* Hide overflow */
-            margin: 0 auto; /* Center the image horizontally */
-        }
+		
     </style>
 </head>
 <body>
+
+    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+        <div class="container">
+            <div class="navbar-menu">
+                <div class="navbar-start">
+                    <a href="#about" class="navbar-item">About</a>
+                    <a href="#projects" class="navbar-item">Projects</a>
+					<a href="#contact" class="navbar-item">Contact</a>
+					<a href="./blog/test-blogpost.html" class="navbar-item">Blog</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
     <section class="hero is-primary is-fullheight">
         <div class="hero-body">
             <div class="container has-text-centered">
@@ -71,18 +72,6 @@
             </div>
         </div>
     </section>
-
-    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
-        <div class="container">
-            <div class="navbar-menu">
-                <div class="navbar-start">
-                    <a href="#about" class="navbar-item">About</a>
-                    <a href="#projects" class="navbar-item">Projects</a>
-                    <a href="#contact" class="navbar-item">Contact</a>
-                </div>
-            </div>
-        </div>
-    </nav>
 
     <section id="about" class="section">
         <div class="container">
@@ -99,34 +88,35 @@
                     <div class="card">
                         <div class="card-content">
                             <h3 class="title is-size-4">Project 1</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget ipsum non purus ultricies varius. Praesent eu ipsum ac dui fermentum vehicula nec id lectus.</p>
+                            <p>Coming soon...</p>
                         </div>
                     </div>
                 </div>
-                <div class="column">
-                    <div class="card">
-                        <div class="card-content">
-                            <h3 class="title is-size-4">Project 2</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget ipsum non purus ultricies varius. Praesent eu ipsum ac dui fermentum vehicula nec id lectus.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+			</div>
+		</div>
     </section>
 
     <section id="contact" class="section">
         <div class="container">
             <h2 class="title is-size-2 has-background-dark">Contact</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget ipsum non purus ultricies varius. Praesent eu ipsum ac dui fermentum vehicula nec id lectus.</p>
+			                <div class="column">
+                    <div class="card">
+                        <div class="card-content">
+                            <a href="https://www.linkedin.com/in/biniyamyohannes/" class="navbar-start">Linkedin</a>
+                        </div>
+                    </div>
+                </div>
         </div>
     </section>
 
+<!---
     <footer class="footer is-dark">
         <div class="content has-text-centered">
             <p>&copy; 2023 Biniyam Yohannes</p>
         </div>
     </footer>
+--->
+
 </body>
 </html>
 
