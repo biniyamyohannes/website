@@ -4,21 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/themes/prism.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
 	<script src="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/prism.min.js"></script>
-    <title>Creating Stunning Web Pages with HTML and CSS</title>
+    <title>Blog Template</title>
     <style>
         /* Custom styles */
         body {
             margin: 0;
             padding: 0;
             font-family: 'Raleway', sans-serif;
-            background: linear-gradient(45deg, #CD3C39, #410940);
-            color: #fff;
+            background: #28303D;
+            color: #F0F0F0;
             text-align: left;
         }
 
-		.blogtitle {
-			color: #CD3C39;
+		.post-title {
+			color: #F0F0F0;
 			padding-top: 100px;
 			/* border-radius: 4px;
 			display: inline-block; */
@@ -28,9 +32,15 @@
 			margin: 10px auto; /* Center the title */
 			text-align: center; /* Center the title text */
 		}
+		
+		.date {
+			color: #F0F0F0;
+			padding-top: 20px;
+			text-align: center; /* Center the title text */
+		}
 
         .separator {
-            border-top: 2px solid #CD3C39;
+            border-top: 2px solid #F0F0F0;
             width: 66.66%; /* 2/3 of the page width */
             margin: 40px auto;
         }
@@ -44,28 +54,42 @@
         .code-container {
 			border-radius: 10px;
             /*background-color: #333;*/
-            /*border: 1px solid #CD3C39;*/
-            padding: 20px;
+            /*border: 1px solid #28303D;*/
+            padding: 5px;
             margin: 20px 0;
             position: relative;
             text-align: left;
         }
+		
+		.math {
+			text-align: center; /* Center the content horizontally */
+			margin-top: 20px; /* Add some top margin for spacing */
+			padding: 10px; /* Add padding for spacing and background color */
+			background-color: #ECECEC; /* Background color for math formulas */
+			border-radius: 5px; /* Add some border radius for rounded corners */
+			border: 1px solid #28303D; /* Border for the math formulas */
+			font-size: 24px; /* Increase font size for math formulas */
+			color: #333; /* Change the text color */
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a box shadow for a card-like effect */
+		}
 
         .code-button {
-            background-color: #CD3C39;
-            color: white;
+            background-color: #F0F0F0;
+            color: #28303D;
             padding: 6px 10px;
             border: none;
             cursor: pointer;
             position: absolute;
-            padding-top: 10px;
+            /*padding-top: 10px;*/
             right: 10px;
+			top: 10px;
+			z-index: 2; /* Ensures the button is above the code */
         }
 
         pre {
 			border-radius: 10px;
             /*background-color: #333;*/
-            /*border: 1px solid #CD3C39;*/
+            /*border: 1px solid #28303D;*/
             padding: 10px;
             overflow: auto;
             font-size: 18px;
@@ -73,14 +97,14 @@
         }
 
         code {
-            /*color: #CD3C39;*/
+            /*color: #28303D;*/
             font-family: 'Courier New', monospace;
             font-size: 18px;
         }
 
         button {
-            background-color: #CD3C39;
-            color: white;
+            background-color: #F0F0F0;
+            color: #28303D;
             padding: 10px 20px;
             border: none;
             cursor: pointer;
@@ -89,7 +113,8 @@
     </style>
 </head>
 <body>
-    <h1 class="blogtitle">Test Blog pPost</h1>
+    <h1 class="post-title">Test Blog Post</h1>
+	<div class="date">October 11, 2023</div>
     <div class="separator"></div>
 <div class="section">
     <p style="font-size: 18px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget ipsum non purus ultricies varius. Praesent eu ipsum ac dui fermentum vehicula nec id lectus. Duis tempus velit sit amet justo elementum, vel feugiat tellus fringilla.</p>
@@ -100,7 +125,9 @@
         <p style="font-size: 18px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget ipsum non purus ultricies varius. Praesent eu ipsum ac dui fermentum vehicula nec id lectus. Duis tempus velit sit amet justo elementum, vel feugiat tellus fringilla.</p>
 
         <div class="code-container">
-            <button class="code-button" onclick="copyCode(this)">Copy Code</button>
+            <button class="code-button" onclick="copyCode(this)">
+				<i class="fa fa-clipboard"></i>
+			</button>
 			<pre>
 				<code class="language-python">
 def calculate_sum(a, b):
@@ -127,7 +154,9 @@ print(f"The sum of {num1} and {num2} is: {sum_result}")
         <p style="font-size: 18px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget ipsum non purus ultricies varius. Praesent eu ipsum ac dui fermentum vehicula nec id lectus. Duis tempus velit sit amet justo elementum, vel feugiat tellus fringilla.</p>
 
         <div class="code-container">
-            <button class="code-button" onclick="copyCode(this)">Copy Code</button>
+            <button class="code-button" onclick="copyCode(this)">
+				<i class="fa fa-clipboard"></i>
+			</button>
             <pre>
                 <code class="language-python">
 def greet(name):
@@ -140,6 +169,19 @@ greet("Python")
 
         <p style="font-size: 18px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget ipsum non purus ultricies varius. Praesent eu ipsum ac dui fermentum vehicula nec id lectus. Duis tempus velit sit amet justo elementum, vel feugiat tellus fringilla.</p>
     </div>
+	
+    <div class="section">
+        <h2 style="font-size: 24px;">Section 3</h2>
+
+        <p style="font-size: 18px;">A mathematical formula rendered with MathJax:</p>
+
+        <div class="math">
+			<script type="math/tex">
+				\frac{d}{dx} \left( \int_{a}^{x} f(u) \, du \right) = f(x)
+			</script>
+        </div>
+    </div>
+	
 	<script>
 		Prism.highlightAll();
 	</script>
