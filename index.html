@@ -11,78 +11,102 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Raleway', sans-serif; /* Apply modern font */
-            background: linear-gradient(45deg, #CD3C39, #410940);
-            color: #fff;
+            font-family: 'Raleway', sans-serif;
+            background: #fff; /* White background */
+            color: #000; /* Black text */
         }
 
         /* Override Bulma styles as needed */
         .hero.is-primary {
-            background-color: transparent; /* Make hero background transparent */
+            background-color: transparent;
         }
 
         .is-dark {
-            background-color: rgba(0, 0, 0, 0.7);
-            color: #fff;
+            background-color: transparent;
+            color: #000;
         }
 
-        .section {
-            position: relative;
-            color: #fff;
-            z-index: 1;
-            background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"%3E%3Cpath fill="%23CD3C39" fill-opacity="0.3" d="M0,288L60,266.7C120,245,240,203,360,165.3C480,128,600,96,720,80C840,64,960,64,1080,58.7C1200,53,1320,43,1380,37.3L1440,32L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"%3E%3C/path%3E%3C/svg%3E');
+		.first-page {
+			position: relative;
+			height: 100vh; /* Adjust the height as needed */
+		}
+
+        /* Center name and position vertically and horizontally on the page */
+        .hero-body {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
         }
 
         /* Adjust title styles */
         .title {
-            color: #CD3C39;
-            padding: 8px 16px; /* Add padding for better visibility */
+            color: #000; /* Black text */
+            padding: 8px 16px;
             border-radius: 4px;
             display: inline-block;
-            background-color: transparent; /* Remove the background rectangle from titles */
+            background-color: #fff; /* White background */
+        }
+
+        /* Styling for the static right-aligned navbar */
+        .navbar-static {
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+            background-color: #fff;
+            color: #000;
+            padding: 10px;
+        }
+
+        .navbar-static a {
+            color: #000;
+            text-decoration: none;
+            margin: 10px;
         }
 
         /* Smaller footer */
         .footer {
             padding: 20px 0;
         }
-		
     </style>
 </head>
 <body>
-
-    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
-        <div class="container">
-            <div class="navbar-menu">
-                <div class="navbar-start">
-                    <a href="#about" class="navbar-item">About</a>
-                    <a href="#projects" class="navbar-item">Projects</a>
-					<a href="#contact" class="navbar-item">Contact</a>
-					<a href="./blog/test-blogpost.html" class="navbar-item">Blog</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <section class="hero is-primary is-fullheight">
-        <div class="hero-body">
-            <div class="container has-text-centered">
-                <h1 class="title is-size-1">Biniyam Yohannes</h1>
-                <p class="subtitle is-size-4">Data Engineer in Minneapolis, MN</p>
-            </div>
-        </div>
-    </section>
+	<div class="first-page">
+		<div class="navbar-static">
+			<a href="#about">About</a>
+			<a href="#projects">Projects</a>
+			<a href="#contact">Contact</a>
+			<a href="./blog/test-blogpost.html">Blog</a>
+		</div>
+    
+		<div class="hero is-primary is-fullheight">
+			<div class="hero-body">
+				<div class="container has-text-centered">
+					<h1 class="title is-size-1" style="color: #000;">Biniyam Yohannes</h1>
+					<p class="subtitle is-size-4" style="color: #000;">Data Engineer in Minneapolis, MN</p>
+				</div>
+			</div>
+		</div>
+	</div>
 
     <section id="about" class="section">
         <div class="container">
-            <h2 class="title is-size-2 has-background-dark">About Me</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget ipsum non purus ultricies varius. Praesent eu ipsum ac dui fermentum vehicula nec id lectus. Duis tempus velit sit amet justo elementum, vel feugiat tellus fringilla.</p>
-        </div>
+			<h2 class="title is-size-2">About</h2>
+			<div class="columns">
+				<div class="column">
+                    <div class="card">
+                        <div class="card-content">
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget ipsum non purus ultricies varius. Praesent eu ipsum ac dui fermentum vehicula nec id lectus. Duis tempus velit sit amet justo elementum, vel feugiat tellus fringilla.</p>
+						</div>
+                    </div>
+                </div>
+			</div>
+		</div>
     </section>
 
     <section id="projects" class="section">
         <div class="container">
-            <h2 class="title is-size-2 has-background-dark">Projects</h2>
+            <h2 class="title is-size-2">Projects</h2>
             <div class="columns">
                 <div class="column">
                     <div class="card">
@@ -92,31 +116,21 @@
                         </div>
                     </div>
                 </div>
-			</div>
-		</div>
+            </div>
+        </div>
     </section>
 
     <section id="contact" class="section">
         <div class="container">
-            <h2 class="title is-size-2 has-background-dark">Contact</h2>
-			                <div class="column">
-                    <div class="card">
-                        <div class="card-content">
-                            <a href="https://www.linkedin.com/in/biniyamyohannes/" class="navbar-start">Linkedin</a>
-                        </div>
+            <h2 class="title is-size-2">Contact</h2>
+            <div class="column">
+                <div class="card">
+                    <div class="card-content">
+                        <a href="https://www.linkedin.com/in/biniyamyohannes/">Linkedin</a>
                     </div>
                 </div>
+            </div>
         </div>
     </section>
-
-<!---
-    <footer class="footer is-dark">
-        <div class="content has-text-centered">
-            <p>&copy; 2023 Biniyam Yohannes</p>
-        </div>
-    </footer>
---->
-
 </body>
 </html>
-
