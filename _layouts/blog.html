@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/themes/prism.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<style>
+		/* Custom styles for the blog list */
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: 'Raleway', sans-serif;
+			background: #28303D;
+			text-align: left;
+			color: #F0F0F0;
+		}
+		.blog-post {
+			list-style: none
+		}
+		.blog-list {
+            margin: 0 auto;
+            width: 33%;
+            padding-bottom: 20px;
+		}
+		.title-link {
+			margin: 0;
+			padding: 0;
+			font-family: 'Raleway', sans-serif;
+			background: #28303D;
+			text-align: left;
+			color: #F0F0F0;
+			font-size: 44px
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+  <ul class="blog-list">
+    {% for post in site.posts %}
+      <li class="blog-post">
+        <a class="title-link" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+        <p class="blog-preview">{{ post.excerpt }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+</body>
+</html>
+

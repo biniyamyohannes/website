@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/themes/prism.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/prism.min.js"></script>
+    <title>{{ page.title }}</title>
+    <style>
+        /* Custom styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Raleway', sans-serif;
+            background: #28303D;
+            color: #F0F0F0;
+            text-align: left;
+        }
+
+        .post-title {
+            color: #F0F0F0;
+            padding-top: 50px;
+            width: 66.66%;
+            margin: 10px auto;
+            text-align: center;
+        }
+
+        .date {
+            color: #F0F0F0;
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        .separator {
+            border-top: 2px solid #F0F0F0;
+            width: 66.66%;
+            margin: 40px auto;
+        }
+
+        .section {
+            margin: 0 auto;
+            width: 50%;
+            padding-bottom: 20px;
+        }
+
+        .code-container {
+            border-radius: 10px;
+            padding: 5px;
+            margin: 20px 0;
+            position: relative;
+            text-align: left;
+        }
+
+        .math {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #ECECEC;
+            border-radius: 5px;
+            border: 1px solid #28303D;
+            font-size: 24px;
+            color: #333;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .code-button {
+            background-color: #F0F0F0;
+            color: #28303D;
+            padding: 6px 10px;
+            border: none;
+            cursor: pointer;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            z-index: 2;
+        }
+
+        pre {
+            border-radius: 10px;
+            padding: 10px;
+            overflow: auto;
+            font-size: 18px;
+            margin: 0;
+        }
+
+        code {
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+        }
+
+        button {
+            background-color: #F0F0F0;
+            color: #28303D;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    {{ content }}
+</body>
+</html>
+<script src="{{ site.baseurl }}/assets/js/prism.js"></script>
+<script>
+	Prism.highlightAll();
+</script>
+<script>
+    function copyCode(button) {
+        const codeBlock = button.nextElementSibling.querySelector('code');
+        const codeText = codeBlock.textContent;
+        navigator.clipboard.writeText(codeText).then(function() {
+            console.log('Code copied to clipboard: ' + codeText);
+        }).catch(function(err) {
+            console.error('Copy failed: ' + err);
+        });
+    }
+</script>
