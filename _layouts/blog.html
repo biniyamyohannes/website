@@ -39,7 +39,7 @@
   <ul class="blog-list">
     {% for post in site.posts %}
       <li class="blog-post">
-        <a class="title-link" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+        <a class="title-link" href="{{ post.url }}">{{ post.title }}</a>
         <p class="blog-preview">{{ post.excerpt }}</p>
       </li>
     {% endfor %}
