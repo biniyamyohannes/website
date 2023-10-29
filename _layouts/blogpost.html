@@ -22,6 +22,7 @@
         }
 
         .post-title {
+            font-size: 64px;
             color: #F0F0F0;
             padding-top: 50px;
             width: 66.66%;
@@ -32,18 +33,19 @@
         .date {
             color: #F0F0F0;
             padding-top: 20px;
+            padding-bottom: 20px;
             text-align: center;
         }
 
         .separator {
             border-top: 2px solid #F0F0F0;
-            width: 66.66%;
+            width: 100%;
             margin: 40px auto;
         }
 
-        .section {
+        .content {
             margin: 0 auto;
-            width: 50%;
+            width: 80%;
             padding-bottom: 20px;
         }
 
@@ -87,9 +89,12 @@
             margin: 0;
         }
 
-        code {
+        .highlight {
             font-family: 'Courier New', monospace;
-            font-size: 18px;
+            width: 100%;
+            font-size: 16px;
+			margin: 0 auto;
+  			text-align: center;
         }
 
         button {
@@ -100,13 +105,52 @@
             cursor: pointer;
             margin-top: 10px;
         }
+
+		.PageNavigation {
+		  color: #fff;
+		  font-size: 16px;
+		  display: block;
+		  width: auto;
+		  overflow: hidden;
+		}
+
+		.PageNavigation a {
+		  display: block;
+		  width: 50%;
+		  float: left;
+		  margin: 1em 0;
+		}
+
+		a:visited {
+		  color: #fff;
+		}
+
+		.PageNavigation .next {
+		  text-align: right;
+		}
+
     </style>
 </head>
 <body>
 	<header>
-		<h1>{{ page.title }}</h1>
-		<p>Published on {{ page.date | date: "%B %d, %Y" }}</p>
-		{{ content }}
+		<h1 class="post-title">{{ page.title }}</h1>
+		<p class="date">{{ page.date | date: "%B %d, %Y" }}</p>
+		<hr class="separator">
+		<div class="content">
+			{{ content }}
+		<div/>
+
+<div class="PageNavigation">
+  {% if page.previous.url %}
+    <a class="prev" href="{{page.previous.url}}">&laquo; {{page.previous.title}}</a>
+  {% endif %}
+  {% if page.next.url %}
+    <a class="next" href="{{page.next.url}}">{{page.next.title}} &raquo;</a>
+  {% endif %}
+</div>
+
+</div>
+
 </body>
 </html>
 <script src="{{ site.baseurl }}/assets/js/prism.js"></script>
