@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/themes/prism.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script type="text/javascript" async
         src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
@@ -13,12 +13,12 @@
     <style>
         /* Custom styles */
         body {
-            margin: 0;
-            padding: 0;
+            margin: 0 auto;
+            max-width: 50%;
+            padding-bottom: 20px;
             font-family: 'Raleway', sans-serif;
             background: #28303D;
             color: #F0F0F0;
-            text-align: left;
         }
 
         .post-title {
@@ -58,9 +58,9 @@
         .math {
             text-align: center;
             margin-top: 20px;
-            padding: 10px;
+            padding: 5px;
             background-color: #ECECEC;
-            border-radius: 5px;
+            border-radius: 10px;
             border: 1px solid #28303D;
             font-size: 24px;
             color: #333;
@@ -103,7 +103,10 @@
     </style>
 </head>
 <body>
-    {{ content }}
+	<header>
+		<h1>{{ page.title }}</h1>
+		<p>Published on {{ page.date | date: "%B %d, %Y" }}</p>
+		{{ content }}
 </body>
 </html>
 <script src="{{ site.baseurl }}/assets/js/prism.js"></script>

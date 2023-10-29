@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Home Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,700&display=swap">
+    <style>
+        /* Custom styles here */
+        body {
+            padding: 0;
+            margin: 0;
+            font-family: 'Raleway', sans-serif;
+            background: #fff; /* White background */
+            color: #000; /* Black text */
+        }
+
+        /* Override Bulma styles as needed */
+        .hero.is-primary {
+            background-color: transparent;
+        }
+
+        .is-dark {
+            background-color: transparent;
+            color: #000;
+        }
+
+		.first-page {
+			position: relative;
+			height: 100vh; /* Adjust the height as needed */
+		}
+
+        /* Center name and position vertically and horizontally on the page */
+        .hero-body {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+        }
+
+        /* Adjust title styles */
+        .title {
+            color: #000; /* Black text */
+            padding: 8px 16px;
+            border-radius: 4px;
+            display: inline-block;
+            background-color: #fff; /* White background */
+        }
+
+        /* Styling for the static right-aligned navbar */
+        .navbar-static {
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+            background-color: #fff;
+            color: #000;
+            padding: 10px;
+        }
+
+        .navbar-static a {
+            color: #000;
+            text-decoration: none;
+            margin: 10px;
+        }
+
+        /* Smaller footer */
+        .footer {
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+	<div class="first-page">
+		<div class="navbar-static">
+			<a href="#about">About</a>
+			<a href="#projects">Projects</a>
+			<a href="#contact">Contact</a>
+			<a href="blog.html">Blog</a>
+		</div>
+    
+		<div class="hero is-primary is-fullheight">
+			<div class="hero-body">
+				<div class="container has-text-centered">
+					<h1 class="title is-size-1" style="color: #000;">Biniyam Yohannes</h1>
+					<p class="subtitle is-size-4" style="color: #000;">Data Engineer in Minneapolis, MN</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+    <section id="about" class="section">
+        <div class="container">
+			<h2 class="title is-size-2">About</h2>
+			<div class="columns">
+				<div class="column">
+                    <div class="card">
+                        <div class="card-content">
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget ipsum non purus ultricies varius. Praesent eu ipsum ac dui fermentum vehicula nec id lectus. Duis tempus velit sit amet justo elementum, vel feugiat tellus fringilla.</p>
+						</div>
+                    </div>
+                </div>
+			</div>
+		</div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="title is-size-2">Projects</h2>
+            <div class="columns">
+                <div class="column">
+                    <div class="card">
+                        <div class="card-content">
+                            <h3 class="title is-size-4">Project 1</h3>
+                            <p>Coming soon...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="title is-size-2">Contact</h2>
+            <div class="column">
+                <div class="card">
+                    <div class="card-content">
+                        <a href="https://www.linkedin.com/in/biniyamyohannes/">Linkedin</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
