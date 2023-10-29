@@ -35,16 +35,7 @@
 	</style>
 </head>
 <body>
-<div class="container">
-  <ul class="blog-list">
-    {% for post in site.posts %}
-      <li class="blog-post">
-        <a class="title-link" href="{{ post.url }}">{{ post.title }}</a>
-        <p class="blog-preview">{{ post.excerpt }}</p>
-      </li>
-    {% endfor %}
-  </ul>
-</div>
+	{{ content }}
 </body>
 </html>
 

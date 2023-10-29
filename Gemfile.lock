@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/sverrirs/jekyll-paginate-v2.git
+  revision: 7bc2634c04c49120b674cc3506275f85c4389f5c
+  specs:
+    jekyll-paginate-v2 (3.0.0)
+      jekyll (>= 3.0, < 5.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -33,6 +40,7 @@ GEM
       webrick (~> 1.7)
     jekyll-feed (0.17.0)
       jekyll (>= 3.7, < 5.0)
+    jekyll-paginate (1.1.0)
     jekyll-sass-converter (3.0.0)
       sass-embedded (~> 1.54)
     jekyll-seo-tag (2.8.0)
@@ -80,6 +88,8 @@ DEPENDENCIES
   http_parser.rb (~> 0.6.0)
   jekyll (~> 4.3.2)
   jekyll-feed (~> 0.12)
+  jekyll-paginate
+  jekyll-paginate-v2!
   jekyll-theme-hacker
   minima (~> 2.5)
   tzinfo (>= 1, < 3)
