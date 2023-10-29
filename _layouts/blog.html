@@ -8,33 +8,65 @@
 	<style>
 		/* Custom styles for the blog list */
 		body {
-			margin: 0;
-			padding: 0;
 			font-family: 'Raleway', sans-serif;
 			background: #28303D;
-			text-align: left;
 			color: #F0F0F0;
+            padding-bottom: 20px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
 		}
 		.blog-post {
-			list-style: none
+			list-style: none;
 		}
-		.blog-list {
+		.post-list {
             margin: 0 auto;
             width: 33%;
             padding-bottom: 20px;
 		}
-		.title-link {
+		h1 {
 			margin: 0;
 			padding: 0;
 			font-family: 'Raleway', sans-serif;
 			background: #28303D;
 			text-align: left;
 			color: #F0F0F0;
-			font-size: 44px
+			font-size: 44px;
+		}
+		.header{
+			padding: 50;
+			font-family: 'Raleway', sans-serif;
+			color: #F0F0F0;
+			font-size: 66px;
+		}
+		.author {
+			text-align: left;
+			margin-bottom: 50px;
+		}
+		a {
+  			color: #F0F0F0;
+		}
+		a:visited {
+  			color: #8C959D;
+		}
+		.excerpt {
+			text-align: left;
+			font-size: 20px;
+		}
+		.pagination {
+		    margin-top: 50px;
+			display: flex;
+		    justify-content: space-between;
+		    align-items: center;
 		}
 	</style>
 </head>
 <body>
+	<div class="header">
+		<p>BINIYAM.NET - BLOG</p>
+	</div>
 	{{ content }}
 </body>
 </html>
