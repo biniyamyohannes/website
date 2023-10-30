@@ -1,7 +1,7 @@
 ---
 layout: blogpost
-title: "Test Blog Post"
-date: 2023-10-15
+title: "Test Blog Post 3"
+date: 2023-10-26
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget ipsum non purus ultricies varius. Praesent eu ipsum ac dui fermentum vehicula nec id lectus. Duis tempus velit sit amet justo elementum, vel feugiat tellus fringilla.
