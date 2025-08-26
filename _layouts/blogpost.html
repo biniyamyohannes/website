@@ -4,8 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Prism CSS (theme) -->
-  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/themes/prism.min.css" rel="stylesheet" />
+  <!-- Prism DARK theme (Okaidia) — expects a dark code background ~ #272822 -->
+  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/themes/prism-okaidia.min.css" rel="stylesheet" />
+
+  <!-- Optional: Prism Toolbar CSS (for Copy button) -->
+  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/plugins/toolbar/prism-toolbar.css" rel="stylesheet" />
 
   <!-- Icons + MathJax -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
@@ -14,69 +17,137 @@
   <title>{{ page.title }}</title>
 
   <style>
-    /* Custom styles */
+    :root {
+      --bg: #0f172a;        /* dark page background */
+      --text: #f1f5f9;      /* light text */
+      --muted:#94a3b8;
+      --border:#1e293b;
+    }
+    /* Base layout */
+    html, body { background: var(--bg); color: var(--text); }
     body {
       margin: 0 auto;
-      max-width: 55%;
-      padding-bottom: 20px;
-      font-family: 'Raleway', sans-serif;
-      background: #28303D;
-      color: #F0F0F0;
-      font-size: 20px;
+      max-width: 1200px;
+      padding: 56px 24px 80px;
+      font: 18px/1.8 system-ui, -apple-system, "Segoe UI", Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
     }
-    .post-title {
-      font-size: 64px;
-      color: #F0F0F0;
-      padding-top: 50px;
-      width: 66.66%;
-      margin: 10px auto;
-      text-align: center;
+    header.site { text-align: center; margin-bottom: 28px; }
+    .post-title { font-size: clamp(42px, 6vw, 64px); font-weight: 800; margin: 0 0 10px; }
+    .date { color: var(--muted); font-size: 16px; margin: 0; }
+    .separator {
+      border: 0; height: 1px; margin: 28px 0 36px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
     }
-    .date { color: #F0F0F0; padding: 20px 0; text-align: center; }
-    .separator { border-top: 2px solid #F0F0F0; width: 100%; margin: 40px auto; }
-    .content { margin: 0 auto; width: 70%; padding-bottom: 20px; line-height: 2.0; }
-    .code-container { border-radius: 10px; padding: 5px; margin: 20px 0; position: relative; text-align: left; }
-    .math { text-align: center; margin-top: 20px; padding: 5px; background-color: #ECECEC; border-radius: 10px; border: 1px solid #28303D; font-size: 24px; color: #333; box-shadow: 0 0 10px rgba(0,0,0,0.2); }
-    .code-button { background-color: #F0F0F0; color: #28303D; padding: 6px 10px; border: none; cursor: pointer; position: absolute; right: 10px; top: 10px; z-index: 2; }
-    pre { border-radius: 10px; padding: 10px; overflow: auto; font-size: 18px; margin: 0; }
-    .highlight { font-family: 'Courier New', monospace; width: 100%; font-size: 14px; margin: 0 auto; text-align: center; }
-    button { background-color: #F0F0F0; color: #28303D; padding: 10px 20px; border: none; cursor: pointer; margin-top: 10px; }
-    .PageNavigation { color: #fff; font-size: 16px; display: block; width: auto; overflow: hidden; }
-    .PageNavigation a { display: block; width: 50%; float: left; margin: 1em 0; }
-    a:visited { color: #fff; }
-    .PageNavigation .next { text-align: right; }
+    .container { max-width: 92ch; margin: 0 auto; }
+    .content { padding-bottom: 24px; }
+    .content { max-width: 100%; }
+    .content, .content p, .content li, .content h1, .content h2, .content h3, .content h4, .content h5, .content h6 { color: var(--text); }
+    .content h2 { font-size: clamp(26px, 4vw, 34px); margin: 32px 0 14px; }
+    .content h3 { font-size: clamp(20px, 3vw, 24px); margin: 22px 0 10px; }
+    .content p { margin-bottom: 18px; }
+    a { color: #38bdf8; text-decoration: none; border-bottom: 1px solid transparent; }
+    a:hover { border-bottom-color: #38bdf8; }
+
+    /* Math box */
+    .math {
+      text-align: center; margin: 18px 0; padding: 10px 12px;
+      background: #f8fafc; color: #0f172a; border: 1px solid #e5e7eb; border-radius: 10px;
+    }
+
+    /* Pagination */
+    .PageNavigation { display: flex; gap: 16px; justify-content: space-between; margin-top: 28px; font-size: 15px; }
+    .PageNavigation a {
+      display: inline-flex; gap: 6px; align-items: center;
+      padding: 8px 12px; border: 1px solid var(--border); border-radius: 8px;
+      background: rgba(255,255,255,.04); color: var(--text);
+    }
+    .PageNavigation a:hover { background: rgba(255,255,255,.07); }
+
+    /* ---- Prism code blocks (dark) ----
+       Okaidia provides token colors tuned for ~#272822.
+       We keep that background and just bump readability a bit. */
+    pre[class*="language-"] {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 16px; line-height: 1.6;
+      border-radius: 10px; border: 1px solid #1e293b;
+      box-shadow: 0 6px 18px rgba(0,0,0,.25);
+      overflow-x: auto;
+    }
+
+    pre[class*="language-"] code {
+      background: transparent !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+    }
+
+    /* Toolbar (Copy button) contrast for dark code blocks */
+    .code-toolbar > .toolbar { opacity: .9; }
+    .code-toolbar > .toolbar .toolbar-item { margin-left: .35rem; }
+    .code-toolbar > .toolbar button,
+    .code-toolbar > .toolbar a {
+      background: #f1f5f9; color: #0f172a;
+      border: 0; border-radius: 6px; padding: 4px 10px; font-size: 14px;
+    }
+    .code-toolbar > .toolbar button:hover { background: #e2e8f0; }
+
+    /* Inline code inside text */
+    code {
+      background: rgba(255,255,255,.08);
+      color: #e5e7eb;
+      padding: 2px 6px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,.12);
+    }
   </style>
 </head>
 <body>
-  <header>
+  <header class="site">
     <h1 class="post-title">{{ page.title }}</h1>
     <p class="date">{{ page.date | date: "%B %d, %Y" }}</p>
-    <hr class="separator">
+    <hr class="separator" />
+  </header>
+
+  <main class="container">
     <div class="content">
       {{ content }}
     </div>
-  </header>
 
-  <div class="PageNavigation">
-    {% if page.previous.url %}
-      <a class="prev" href="{{ page.previous.url }}">&laquo; {{ page.previous.title }}</a>
-    {% endif %}
-    {% if page.next.url %}
-      <a class="next" href="{{ page.next.url }}">{{ page.next.title }} &raquo;</a>
-    {% endif %}
-  </div>
+    <div class="PageNavigation">
+      {% if page.previous.url %}
+        <a class="prev" href="{{ page.previous.url }}">&laquo; {{ page.previous.title }}</a>
+      {% endif %}
+      {% if page.next.url %}
+        <a class="next" href="{{ page.next.url }}">{{ page.next.title }} &raquo;</a>
+      {% endif %}
+    </div>
+  </main>
 
-  <!-- Prism Core + Autoloader -->
+  <!-- Prism Core + Autoloader + Toolbar + Copy -->
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/components/prism-core.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/plugins/autoloader/prism-autoloader.min.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/plugins/toolbar/prism-toolbar.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/plugins/toolbar/prism-toolbar.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1.24.1/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
-
   <script>
+    // Autoload languages from CDN (yaml, bash, docker, python, json, etc.)
     Prism.plugins.autoloader.languages_path = 'https://cdn.jsdelivr.net/npm/prismjs@1.24.1/components/';
-    Prism.highlightAll();
+    document.addEventListener('DOMContentLoaded', function () {
+      Prism.highlightAll();
+    });
   </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        displayMath: [['$$','$$'], ['\\[','\\]']],
+        processEscapes: true
+      }
+    });
+  </script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
 
 </body>
 </html>
