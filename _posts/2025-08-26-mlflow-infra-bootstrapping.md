@@ -4,15 +4,14 @@ title: "Bootstrapping MLflow with Docker"
 date: 2025-08-27
 ---
 
-This project sets up a containerized MLflow tracking server using Docker.  
-The goal is to provide a reproducible and persistent local environment for experiment tracking: an MLflow server with a Postgres backend and S3 artifact storage.
+This project sets up a containerized MLflow tracking server with Docker, using Postgres for metadata and S3 for artifacts.
 
 <!-- more -->
 
 ## Motivation
 
-A containerized MLflow stack provides a reproducible tracking service that can be reused across future projects.
-Postgres and S3 provide persistent artifact storage, and Docker Compose makes the environment easy to spin up or extend.
+A containerized MLflow stack provides a consistent experiment tracking and model registry service that can be reused across future projects.
+Postgres and S3 provide persistent storage, and Docker Compose makes the environment easy to spin up or extend.
 
 ## Implementation
 
@@ -27,7 +26,7 @@ All components are defined in [compose.yml](https://github.com/biniyamyohannes/m
 docker compose up -d
 ```
 
-The Compose spins up MLflow and Postgres as separate containers. Postgres data is mapped to a named volume for persistence, so experiments aren’t lost when containers stop.
+The Compose spins up the MLflow server and Postgres as separate containers. Postgres data is mapped to a named volume for persistence, so experiments aren’t lost when containers stop.
 
 ```yaml
 postgres:
@@ -59,6 +58,20 @@ mlflow:
       --port 5000
       --default-artifact-root "${S3_ARTIFACT_ROOT}"
       --backend-store-uri postgresql://mlflow:mlflow_pass@postgres:5432/mlflow_db
+```
+
+The base `ghcr.io/mlflow/mlflow` image for the `mlflow` service does not include the psycopg2 package required for the Postgres backend. To enable connectivity, the image must be extended:
+
+```dockerfile
+FROM ghcr.io/mlflow/mlflow
+
+RUN apt-get update && \
+apt-get install -y --no-install-recommends pkg-config && \
+apt-get clean && rm -rf /var/lib/apt/lists/* && \
+pip install --no-cache --upgrade pip && \
+pip install --no-cache psycopg2-binary
+
+CMD ["bash"]
 ```
 
 A simple Python script verifies that logging works:
