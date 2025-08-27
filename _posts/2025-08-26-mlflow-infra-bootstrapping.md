@@ -73,6 +73,4 @@ with mlflow.start_run():
     mlflow.log_metric("accuracy", 0.92)
 ```
 
-[]https://mlflow.org/docs/latest/assets/images/tracking-setup-overview-3d8cfd511355d9379328d69573763331.png
-
-![MLflow Custom Setups](https://img.shields.io/badge/code-GitHub-black?logo=github)](https://github.com/biniyamyohannes/mlops-mlflow-infra)
+![MLflow Custom Setups](https://img.shields.io/badge/code-GitHub-black?logo=github)(https://github.com/biniyamyohannes/mlops-mlflow-infra)
