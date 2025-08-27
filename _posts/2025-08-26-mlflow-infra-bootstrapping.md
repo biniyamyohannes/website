@@ -30,34 +30,34 @@ The Compose spins up the MLflow server and Postgres as separate containers. Post
 
 ```yaml
 postgres:
-    image: postgres:15
-    environment:
-      POSTGRES_USER: mlflow
-      POSTGRES_PASSWORD: mlflow_pass
-      POSTGRES_DB: mlflow_db
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-    networks: [mlflow]
+  image: postgres:15
+  environment:
+    POSTGRES_USER: mlflow
+    POSTGRES_PASSWORD: mlflow_pass
+    POSTGRES_DB: mlflow_db
+  volumes:
+    - pgdata:/var/lib/postgresql/data
+  networks: [mlflow]
 ```
 
 The MLflow tracking server runs on a user-defined Docker network, allowing future containers to connect directly by service name (`mlflow:5000`), without relying on the host or container IP.
 
 ```yaml
 mlflow:
-    build: .
-    ports:
-      - "5000:5000"
-    env_file:
-      - .env
-    depends_on:
-      - postgres
-    networks: [mlflow]
-    command: >
-      mlflow server
-      --host 0.0.0.0
-      --port 5000
-      --default-artifact-root "${S3_ARTIFACT_ROOT}"
-      --backend-store-uri postgresql://mlflow:mlflow_pass@postgres:5432/mlflow_db
+  build: .
+  ports:
+    - "5000:5000"
+  env_file:
+    - .env
+  depends_on:
+    - postgres
+  networks: [mlflow]
+  command: >
+    mlflow server
+    --host 0.0.0.0
+    --port 5000
+    --default-artifact-root "${S3_ARTIFACT_ROOT}"
+    --backend-store-uri postgresql://mlflow:mlflow_pass@postgres:5432/mlflow_db
 ```
 
 The base `ghcr.io/mlflow/mlflow` image for the `mlflow` service does not include the psycopg2 package required for the Postgres backend. To enable connectivity, the image must be extended:
