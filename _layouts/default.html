@@ -72,65 +72,100 @@
 </head>
 <body>
 	<div class="first-page">
-		<div class="navbar-static">
-			<a href="#about">About</a>
-			<a href="#projects">Projects</a>
-			<a href="#contact">Contact</a>
-			<a href="blog/">Blog</a>
-		</div>
-    
-		<div class="hero is-primary is-fullheight">
-			<div class="hero-body">
-				<div class="container has-text-centered">
-					<h1 class="title is-size-1" style="color: #000;">Biniyam Yohannes</h1>
-					<p class="subtitle is-size-4" style="color: #000;">Data Engineer in Minneapolis, MN</p>
-				</div>
-			</div>
-		</div>
-	</div>
+
+    <!-- Sticky navbar -->
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation" style="background:#fff;border-bottom:1px solid #eee;">
+      <div class="container" style="display:flex;justify-content:center;">
+        <div class="navbar-menu is-active" style="box-shadow:none;">
+          <div class="navbar-start">
+            <a class="navbar-item" href="#about">About</a>
+            <a class="navbar-item" href="#projects">Projects</a>
+            <a class="navbar-item" href="#contact">Contact</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero is-white is-fullheight-with-navbar">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <h1 class="title is-size-1 has-text-black">Biniyam Yohannes</h1>
+          <p class="subtitle is-size-4 has-text-grey-dark">ML Engineer in Minneapolis, MN — building reliable ML systems.</p>
+          <div class="buttons is-centered" style="margin-top:12px;">
+            <a class="button is-dark" href="/assets/resume.pdf">View Résumé</a>
+            <a class="button is-black is-outlined" href="https://github.com/biniyamyohannes">GitHub</a>
+            <a class="button is-link is-light" href="blog/">Blog</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section id="about" class="section">
-        <div class="container">
-			<h2 class="title is-size-2">About</h2>
-			<div class="columns">
-				<div class="column">
-                    <div class="card">
-                        <div class="card-content">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget ipsum non purus ultricies varius. Praesent eu ipsum ac dui fermentum vehicula nec id lectus. Duis tempus velit sit amet justo elementum, vel feugiat tellus fringilla.</p>
-						</div>
-                    </div>
-                </div>
-			</div>
-		</div>
+      <div class="container">
+        <h2 class="title is-3">About</h2>
+        <div class="content is-size-5">
+          <p>I’m a Machine Learning engineer based in Minneapolis, MN. My interests lie at the intersection of machine learning and systems — from experimentation and model training to deployment and monitoring.</p>
+          <p><strong>Tools:</strong>  PyTorch, scikit-learn, Pandas, NumPy, MLflow, AWS, Docker, SQL, MLflow, GitHub Actions, Jenkins, Git, Linux, VSCode, Linux</p>
+        </div>
+      </div>
     </section>
 
     <section id="projects" class="section">
-        <div class="container">
-            <h2 class="title is-size-2">Projects</h2>
-            <div class="columns">
-                <div class="column">
-                    <div class="card">
-                        <div class="card-content">
-                            <h3 class="title is-size-4">Project 1</h3>
-                            <p>Coming soon...</p>
-                        </div>
-                    </div>
+      <div class="container">
+        <h2 class="title is-3">Projects</h2>
+        <div class="columns is-multiline">
+          <!-- Project 1 -->
+          <div class="column is-6">
+            <div class="card">
+              <div class="card-content">
+                <p class="title is-5">MLflow in Docker — Local Tracking</p>
+                <p class="subtitle is-6">Postgres backend + S3 artifact storage.</p>
+                <div class="tags">
+                  <span class="tag is-dark">Docker</span>
+                  <span class="tag is-dark">MLflow</span>
+                  <span class="tag is-dark">Postgres</span>
                 </div>
+                <div class="buttons">
+                  <a class="button is-link is-light" href="/blog/bootstrapping-mlflow-with-docker/">Blog</a>
+                  <a class="button is-dark is-outlined" href="https://github.com/yourname/mlflow-docker">Code</a>
+                </div>
+              </div>
             </div>
+          </div>
+
+          <!-- Placeholder for next module -->
+          <div class="column is-6">
+            <div class="card">
+              <div class="card-content">
+                <p class="title is-5">Training Runs + Auto-logging</p>
+                <p class="subtitle is-6">Containerized training with metrics/params to MLflow.</p>
+                <div class="tags">
+                  <span class="tag is-dark">Python</span>
+                  <span class="tag is-dark">Docker</span>
+                  <span class="tag is-dark">MLflow</span>
+                </div>
+                <div class="buttons">
+                  <a class="button is-static">Coming soon</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
+      </div>
     </section>
 
-    <section id="contact" class="section">
-        <div class="container">
-            <h2 class="title is-size-2">Contact</h2>
-            <div class="column">
-                <div class="card">
-                    <div class="card-content">
-                        <a href="https://www.linkedin.com/in/biniyamyohannes/">Linkedin</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</body>
-</html>
+<section id="contact" class="section">
+  <div class="container">
+    <h2 class="title is-3">Contact</h2>
+    <div class="content is-size-5">
+      <p><a href="mailto:biniyam@biniyam.dev">biniyam.yohannes@outlook.com</a></p>
+      <p>
+        <a href="https://www.linkedin.com/in/biniyamyohannes/">LinkedIn</a> ·
+        <a href="https://github.com/biniyamyohannes">GitHub</a>
+      </p>
+    </div>
+  </div>
+</section>
+
