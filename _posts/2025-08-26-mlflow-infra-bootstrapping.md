@@ -60,7 +60,7 @@ mlflow:
     --backend-store-uri postgresql://mlflow:mlflow_pass@postgres:5432/mlflow_db
 ```
 
-The base `ghcr.io/mlflow/mlflow` image for the `mlflow` service does not include the psycopg2 package required for the Postgres backend. To enable connectivity, the image must be extended:
+The base `ghcr.io/mlflow/mlflow` image for the `mlflow` service does not include the psycopg2 and boto3 packages required for Postgres and AWS. To enable connectivity, the image must be extended (including optional cleanup to reduce the image size):
 
 ```dockerfile
 FROM ghcr.io/mlflow/mlflow
@@ -69,7 +69,7 @@ RUN apt-get update && \
 apt-get install -y --no-install-recommends pkg-config && \
 apt-get clean && rm -rf /var/lib/apt/lists/* && \
 pip install --no-cache --upgrade pip && \
-pip install --no-cache psycopg2-binary
+pip install --no-cache psycopg2-binary boto3
 
 CMD ["bash"]
 ```
