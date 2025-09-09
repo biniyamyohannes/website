@@ -28,6 +28,36 @@ docker compose up -d
 
 The Compose spins up the MLflow server and Postgres as separate containers. Postgres data is mapped to a named volume for persistence, so experiments aren’t lost when containers stop.
 
+<!--
+```yaml
+postgres:
+  image: postgres:15
+  environment:
+    POSTGRES_USER: mlflow
+    POSTGRES_PASSWORD: mlflow_pass
+    POSTGRES_DB: mlflow_db
+  volumes:
+    - pgdata:/var/lib/postgresql/data
+  networks: [mlflow]
+-->
+
+{% raw %}
+<pre data-line="3-4">
+  <code class="language-yaml">
+postgres:
+  image: postgres:15
+  environment:
+    POSTGRES_USER: mlflow
+    POSTGRES_PASSWORD: mlflow_pass
+    POSTGRES_DB: mlflow_db
+  volumes:
+    - pgdata:/var/lib/postgresql/data
+  networks: [mlflow]
+  </code>
+</pre>
+{% endraw %}
+
+
 ```yaml
 postgres:
   image: postgres:15
