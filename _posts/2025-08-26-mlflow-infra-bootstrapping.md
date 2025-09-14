@@ -20,43 +20,13 @@ Key pieces:
 - **Postgres**: backend database for MLflow metadata.
 - **S3**: object storage for artifacts.
 
-All components are defined in [compose.yml](https://github.com/biniyamyohannes/mlops-mlflow-infra/blob/main/docker/compose.yaml). The environment can be started with a single command:
+All components are defined in [compose.yaml](https://github.com/biniyamyohannes/mlops-mlflow-infra/blob/main/compose.yaml). The environment can be started with a single command:
 
 ```bash
 docker compose up -d
 ```
 
 The Compose spins up the MLflow server and Postgres as separate containers. Postgres data is mapped to a named volume for persistence, so experiments aren’t lost when containers stop.
-
-<!--
-```yaml
-postgres:
-  image: postgres:15
-  environment:
-    POSTGRES_USER: mlflow
-    POSTGRES_PASSWORD: mlflow_pass
-    POSTGRES_DB: mlflow_db
-  volumes:
-    - pgdata:/var/lib/postgresql/data
-  networks: [mlflow]
--->
-
-{% raw %}
-<pre data-line="3-4">
-  <code class="language-yaml">
-postgres:
-  image: postgres:15
-  environment:
-    POSTGRES_USER: mlflow
-    POSTGRES_PASSWORD: mlflow_pass
-    POSTGRES_DB: mlflow_db
-  volumes:
-    - pgdata:/var/lib/postgresql/data
-  networks: [mlflow]
-  </code>
-</pre>
-{% endraw %}
-
 
 ```yaml
 postgres:
