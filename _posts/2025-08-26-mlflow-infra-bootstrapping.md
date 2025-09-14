@@ -20,7 +20,7 @@ Key pieces:
 - **Postgres**: backend database for MLflow metadata.
 - **S3**: object storage for artifacts.
 
-All components are defined in [compose.yaml](https://github.com/biniyamyohannes/mlops-mlflow-infra/blob/main/compose.yaml). The environment can be started with a single command:
+All components are defined in the [compose.yaml](https://github.com/biniyamyohannes/mlops-mlflow-infra/blob/main/compose.yaml) file. The environment can be started with a single command:
 
 ```bash
 docker compose up -d
