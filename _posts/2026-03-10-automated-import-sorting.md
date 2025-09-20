@@ -1,6 +1,6 @@
 ---
 layout: blogpost
-title: "Automated Import Management with iSort"
+title: "Automated Python Import Management With iSort"
 date: 2026-03-10
 ---
 
