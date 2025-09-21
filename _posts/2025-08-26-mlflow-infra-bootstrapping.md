@@ -10,7 +10,7 @@ This project sets up a containerized MLflow tracking server with Docker, using P
 
 ## Motivation
 
-A containerized MLflow stack provides a consistent experiment tracking and model registry service that can be reused across future projects.
+A containerized MLflow stack provides experiment tracking and a model registry that can be reused across projects.
 Postgres and S3 provide persistent storage, and Docker Compose makes the environment easy to spin up or extend.
 
 ## Implementation
